@@ -25,7 +25,7 @@ services:
     # Consider changing this to /var/log/uwsgi:/var/log/uwsgi in production
     # Just make sure the directory exists before running docker-compose up --build
     volumes:
-      - ./log/uwsgi:/var/log/uwsgi
+      - ./var/log/uwsgi:/var/log/uwsgi
 
   nginx:
     # Build the nginx service using the Dockerfile in the nginx directory
@@ -45,4 +45,4 @@ services:
     # Consider changing this to /var/log/nginx:/var/log/nginx in production
     # Just make sure the directory exists before running docker-compose up --build
     volumes:
-      - ./log/nginx:/var/log/nginx
+      - ./var/log/nginx:/var/log/nginx
