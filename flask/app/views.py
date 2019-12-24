@@ -2,7 +2,6 @@ from app import app
 
 import os
 
-
 @app.route("/")
 def index():
 
@@ -12,4 +11,4 @@ def index():
     if app_name:
         return f"Hello from {app_name} running in a Docker container behind Nginx!"
 
-    return "Hello we are flask"
+    return "Hello from Flask"

@@ -32,4 +32,4 @@ Go to - http://127.0.0.1/
 
 `nginx` logs and `uwsgi` logs will be logged to `log/nginx` and `log/uwsgi` respectively. This can be changed by changing the `volume` mounts in the `docker-compose.yml`.
 
-if the `volumes` are deleted, Docker would log to `Stdout`.
+Alternatively, delete the `volumes` to have Docker log to `Stdout`.

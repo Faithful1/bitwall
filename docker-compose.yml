@@ -1,38 +1,39 @@
 version: "3"
 
 services:
-  # Lets define our individual services
+  # Define our individual services
+
   flask:
     # Build the flask service using the Dockerfile in the flask directory
     build: ./flask
 
-    # A friendly name for the flask container
-    container_name: flask
+    # Give our flask container a friendly name
+    container_name: flask-app
 
-    # Instruct Docker to always restart the service either in reboot or when the app crashes
+    # Instruct Docker to always restart the service when it crashes or reboot
     restart: always
 
     # Use environment to set any environment variables
     environment:
-      - APP_NAME=bitwalla-Test
+      - APP_NAME=MyFlaskApp
 
     # Any ports listed using `expose` will only be accessible to internal services/containers
     # uWSGI will be serving our Flask application on port 8080
-    # This architecture is for protecting the app from direct access to the public
     expose:
       - 8080
+
     # Mount the container log directory to the local log directory
     # Consider changing this to /var/log/uwsgi:/var/log/uwsgi in production
     # Just make sure the directory exists before running docker-compose up --build
     volumes:
-      - ./var/log/uwsgi:/var/log/uwsgi
+      - ./log/uwsgi:/var/log/uwsgi
 
   nginx:
     # Build the nginx service using the Dockerfile in the nginx directory
     build: ./nginx
 
     # Give our nginx container a friendly name
-    container_name: nginx
+    container_name: nginx-app
 
     # Instruct Docker to always restart the service
     restart: always
@@ -45,4 +46,4 @@ services:
     # Consider changing this to /var/log/nginx:/var/log/nginx in production
     # Just make sure the directory exists before running docker-compose up --build
     volumes:
-      - ./var/log/nginx:/var/log/nginx
+      - ./log/nginx:/var/log/nginx
