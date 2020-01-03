@@ -20,16 +20,33 @@ flask run
 
 Go to - http://127.0.0.1:5000
 
-To run the container locally:
+## To run using docker-compose
 
-```sh
-docker-compose up --build
-```
+## dependencies
+
+### 0. setup
+
+Ensure these are installed before going further:
+
+- docker@\^18.05.0-ce
+- docker-compose@^1.21.2
+
+### 1. run
+
+- `docker-compose up -d`
+  You can begin editing code on your host machine, changes will be detected and all relevant processes restarted or live-reloaded inside their containers.
+
+### 2. inspect
+
+- `docker-compose ps` (print status)
+- `docker-compose logs service-name(e.g api or mongo)` (attaches to logs of one or more services)
+
+### 3. run
 
 Go to - http://127.0.0.1/
 
 ### Notes
 
-`nginx` logs and `uwsgi` logs will be logged to `log/nginx` and `log/uwsgi` respectively. This can be changed by changing the `volume` mounts in the `docker-compose.yml`.
+`nginx` logs and `uwsgi` logs will be logged to `/var/log/nginx` and `/var/log/uwsgi` respectively. This can be changed by changing the `volume` mounts in the `docker-compose.yml`.
 
 Alternatively, delete the `volumes` to have Docker log to `Stdout`.
