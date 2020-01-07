@@ -117,3 +117,5 @@ dmypy.json
 .vscode
 dump.rdb
 guide.md
+
+.ionide
