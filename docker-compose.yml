@@ -27,7 +27,7 @@ services:
     restart: always
     environment:
       - APP_NAME=${APP_NAME}
-      - API_ADDRESS=${API_ADDRESS}
+      - VIRTUAL_HOST=${APP_DOMAIN}
     expose:
       - 8080
     volumes:
