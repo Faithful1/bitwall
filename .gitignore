@@ -120,5 +120,5 @@ guide.md
 
 .ionide
 
-/log/data/certbot
-/log/data/nginx
+log/
+data/
