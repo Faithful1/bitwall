@@ -2,7 +2,7 @@
 
 domains=(faithbit.tk www.faithbit.tk)
 rsa_key_size=4096
-data_path="/var/data/certbot/conf"
+data_path="./var/data/certbot"
 email="faithful@infused.io" # Adding a valid address is strongly recommended
 staging=0 # Set to 1 if you're testing your setup to avoid hitting request limits
 
@@ -62,7 +62,7 @@ esac
 if [ $staging != "0" ]; then staging_arg="--staging"; fi
 
 docker-compose run --rm --entrypoint "\
-  certbot certonly --webroot -w /var/www/certbot -d faithbit.tk \
+  certbot certonly --webroot -w /var/www/certbot \
     $staging_arg \
     $email_arg \
     $domain_args \
