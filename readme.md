@@ -37,6 +37,8 @@ Ensure these are installed before going further:
 - navigate into the root folder of our cloned application
 - run `chmod +x init-ssl.sh`
 - run `sudo ./init-ssl.sh` to generate our self-signed certificates
+- create a .env file in your root folder, check through the "envsample" file here on this repo and copy the contents into your .env file giving your app a name of course and your server domain name
+- edit the nginx config file `nginx/nginx.conf` changing the server_name to your own domain name`server_name YOUR_DOMAIN_NAME`
 - run `docker-compose up -d`
   You can begin editing code on your host machine, changes will be detected and all relevant processes restarted or live-reloaded inside their containers.
 
