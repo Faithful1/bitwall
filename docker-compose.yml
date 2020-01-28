@@ -12,6 +12,9 @@ services:
       - "443:443"
     volumes:
       - ./var/log/nginx:/var/log/nginx
+    networks:
+      - front-tier
+      - back-tier
 
   flask:
     build: ./flask
@@ -24,3 +27,9 @@ services:
       - 8080
     volumes:
       - ./var/log/uwsgi:/var/log/uwsgi
+    networks:
+      - back-tier
+
+networks:
+  front-tier:
+  back-tier:
